@@ -1,0 +1,26 @@
+# Plano Lab 1 v2 (cm, origen al centro de la celda, X a la derecha, Y hacia arriba).
+# x, y = CENTRO de la estacion. dx = ancho en X, dy = largo en Y. h = altura (todas 2 cm).
+celda: {lado_cm: 125.0}
+estaciones:
+  EB:  {forma: caja, x: -40.0, y: 12.0,  dx: 15.0, dy: 20.0, h: 2.0, color: [0.55, 0.75, 0.40]}  # rack envases vacios (15x20)
+  RT:  {forma: caja, x: 40.0,  y: -35.0, dx: 15.0, dy: 20.0, h: 2.0, color: [0.55, 0.75, 0.40]}  # rack de tapas (15x20)
+  PF:  {forma: caja, x: -37.0, y: -35.0, dx: 12.0, dy: 30.0, h: 2.0, color: [0.55, 0.75, 0.40]}  # estanteria / posicion final (12x30)
+  PLL: {forma: caja, x: 0.0,   y: 13.0,  dx: 10.0, dy: 10.0, h: 2.0, color: [0.95, 0.80, 0.10]}  # pos. llenado (10x10)
+  PS:  {forma: caja, x: 0.0,   y: -35.0, dx: 10.0, dy: 10.0, h: 2.0, color: [0.10, 0.75, 0.20]}  # pos. sellado (10x10)
+  RI:  {forma: cilindro, x: 0.0, y: 50.0, diametro: 14.0, h: 2.0, color: [0.60, 0.80, 0.30]}     # recipiente inicial (dia 14)
+  # RE (recipiente de enfriamiento) se unio con PLL: R1 vierte el aceite directamente en la botella en PLL
+
+# Objetos que aparecen al iniciar (carpeta models/<modelo>). Los mueve el coordinador (scripts/coordinador.py).
+#   sobre: EST       -> centrado encima de la estacion
+#   encima_cm: h     -> h cm mas arriba de la estacion
+#   pose_cm: [x,y,z] -> posicion exacta
+objetos:
+  botella:            {modelo: botella, sobre: EB}                    # envase vacio en el rack de envases
+  botella_llena:      {modelo: botella_llena, pose_cm: [0, 0, -50]}  # escondida bajo el piso hasta el llenado en PLL
+  dispensador_tapas:  {modelo: dispensador_tapas, sobre: RT}
+  tapa:               {modelo: tapa, sobre: RT, encima_cm: 5.5}      # encima del dispensador
+
+# Linea con varias botellas: copias extra de botella / botella_llena / tapa (botella_1, botella_llena_1, tapa_1, ...)
+# escondidas bajo el piso; el coordinador las reutiliza (una botella que llega a PF vuelve a quedar libre).
+# Con 6 alcanza: como mucho hay 1 en EB + R2 + PLL + R3 + PS + R5.
+pool: 6

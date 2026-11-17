@@ -1,0 +1,489 @@
+{
+ "objetos_inicio": {
+  "botella": [
+   -0.4,
+   0.12,
+   0.02
+  ],
+  "tapa": [
+   0.4,
+   -0.35,
+   0.075
+  ]
+ },
+ "robot1": {
+  "RI_arriba": {
+   "joint_1": -0.75935,
+   "joint_2": -0.74103,
+   "joint_3": -0.37838,
+   "joint_4": 0.0
+  },
+  "RI_dentro": {
+   "joint_1": -0.74957,
+   "joint_2": -1.42101,
+   "joint_3": -0.60293,
+   "joint_4": 0.0
+  },
+  "PLL_arriba": {
+   "joint_1": 0.73027,
+   "joint_2": -1.08782,
+   "joint_3": -1.14633,
+   "joint_4": 0.0
+  },
+  "PLL_verter": {
+   "joint_1": 0.72968,
+   "joint_2": -1.10776,
+   "joint_3": -1.25956,
+   "joint_4": 0.0
+  }
+ },
+ "agarre": {
+  "robot3": {
+   "link": "tcp",
+   "punto": [
+    0.12200559710337919,
+    0.021300585540287117,
+    0.0009304909878447842
+   ]
+  },
+  "robot4": {
+   "link": "Link_3",
+   "punto": [
+    0.0,
+    0.0,
+    -0.01200000000000001
+   ]
+  },
+  "robot5": {
+   "link": "Link_3",
+   "punto": [
+    0.0335000692197832,
+    -1.0850630721981336e-06,
+    0.19049999999600625
+   ]
+  },
+  "robot2": {
+   "link": "Cremallera2",
+   "punto": [
+    -0.37385792598993195,
+    -0.19700011534370881,
+    -0.021852033703721782
+   ]
+  }
+ },
+ "robot1_verter": 0.87,
+ "plan": [
+  {
+   "robot": "robot2",
+   "objeto": "botella",
+   "keyframes": [
+    [
+     "ir a recoger",
+     {
+      "Revoluci_n_1": -1.864440174191719,
+      "Revoluci_n_2": 1.6225806263779958,
+      "Corredera_4": 0.039
+     },
+     null,
+     []
+    ],
+    [
+     "bajar",
+     {
+      "Revoluci_n_1": -1.864440174191719,
+      "Revoluci_n_2": 1.6225806263779958,
+      "Corredera_4": 0.016
+     },
+     null
+    ],
+    [
+     "agarrar",
+     {
+      "Revoluci_n_1": -1.864440174191719,
+      "Revoluci_n_2": 1.6225806263779958,
+      "Corredera_4": 0.016
+     },
+     [
+      "agarrar",
+      "botella"
+     ]
+    ],
+    [
+     "subir",
+     {
+      "Revoluci_n_1": -1.864440174191719,
+      "Revoluci_n_2": 1.6225806263779958,
+      "Corredera_4": 0.039
+     },
+     null
+    ],
+    [
+     "llevar",
+     {
+      "Revoluci_n_1": -2.2294591990557504,
+      "Revoluci_n_2": -2.417008260214046,
+      "Corredera_4": 0.039
+     },
+     null,
+     []
+    ],
+    [
+     "bajar",
+     {
+      "Revoluci_n_1": -2.2294591990557504,
+      "Revoluci_n_2": -2.417008260214046,
+      "Corredera_4": 0.016
+     },
+     null
+    ],
+    [
+     "soltar",
+     {
+      "Revoluci_n_1": -2.2294591990557504,
+      "Revoluci_n_2": -2.417008260214046,
+      "Corredera_4": 0.016
+     },
+     [
+      "soltar",
+      "botella"
+     ]
+    ],
+    [
+     "subir",
+     {
+      "Revoluci_n_1": -2.2294591990557504,
+      "Revoluci_n_2": -2.417008260214046,
+      "Corredera_4": 0.039
+     },
+     null
+    ],
+    [
+     "volver a HOME",
+     {
+      "Revoluci_n_1": -1.5708,
+      "Revoluci_n_2": 1.5708,
+      "Corredera_4": 0.039
+     },
+     null,
+     [
+      {
+       "Revoluci_n_1": -1.8325957145940497,
+       "Revoluci_n_2": 1.308996938995735,
+       "Corredera_4": 0.039
+      }
+     ]
+    ]
+   ]
+  },
+  {
+   "robot": "robot3",
+   "objeto": "botella",
+   "keyframes": [
+    [
+     "ir a recoger",
+     {
+      "eslabon1_joint": 1.9790804872631194,
+      "eslabon2_joint": 1.7478638385809404,
+      "prismatico_joint": 0.001
+     },
+     null,
+     []
+    ],
+    [
+     "bajar",
+     {
+      "eslabon1_joint": 1.9790804872631194,
+      "eslabon2_joint": 1.7478638385809404,
+      "prismatico_joint": 0.020977443609022556
+     },
+     null
+    ],
+    [
+     "agarrar",
+     {
+      "eslabon1_joint": 1.9790804872631194,
+      "eslabon2_joint": 1.7478638385809404,
+      "prismatico_joint": 0.020977443609022556
+     },
+     [
+      "agarrar",
+      "botella"
+     ]
+    ],
+    [
+     "subir",
+     {
+      "eslabon1_joint": 1.9790804872631194,
+      "eslabon2_joint": 1.7478638385809404,
+      "prismatico_joint": 0.001
+     },
+     null
+    ],
+    [
+     "llevar",
+     {
+      "eslabon1_joint": -1.3194927318701326,
+      "eslabon2_joint": 1.9269663741432765,
+      "prismatico_joint": 0.001
+     },
+     null,
+     []
+    ],
+    [
+     "bajar",
+     {
+      "eslabon1_joint": -1.3194927318701326,
+      "eslabon2_joint": 1.9269663741432765,
+      "prismatico_joint": 0.020977443609022556
+     },
+     null
+    ],
+    [
+     "soltar",
+     {
+      "eslabon1_joint": -1.3194927318701326,
+      "eslabon2_joint": 1.9269663741432765,
+      "prismatico_joint": 0.020977443609022556
+     },
+     [
+      "soltar",
+      "botella"
+     ]
+    ],
+    [
+     "subir",
+     {
+      "eslabon1_joint": -1.3194927318701326,
+      "eslabon2_joint": 1.9269663741432765,
+      "prismatico_joint": 0.001
+     },
+     null
+    ],
+    [
+     "volver a HOME",
+     {
+      "eslabon1_joint": 1.6275,
+      "eslabon2_joint": 1.8523,
+      "prismatico_joint": 0.001
+     },
+     null,
+     []
+    ]
+   ]
+  },
+  {
+   "robot": "robot4",
+   "objeto": "tapa",
+   "keyframes": [
+    [
+     "ir a recoger",
+     {
+      "Joint_1": -0.1677022162177244,
+      "Joint_2": 1.0557976691775943,
+      "Joint_3": 0.001
+     },
+     null,
+     []
+    ],
+    [
+     "bajar",
+     {
+      "Joint_1": -0.1677022162177244,
+      "Joint_2": 1.0557976691775943,
+      "Joint_3": 0.09605
+     },
+     null
+    ],
+    [
+     "agarrar",
+     {
+      "Joint_1": -0.1677022162177244,
+      "Joint_2": 1.0557976691775943,
+      "Joint_3": 0.09605
+     },
+     [
+      "agarrar",
+      "tapa"
+     ]
+    ],
+    [
+     "subir",
+     {
+      "Joint_1": -0.1677022162177244,
+      "Joint_2": 1.0557976691775943,
+      "Joint_3": 0.001
+     },
+     null
+    ],
+    [
+     "llevar",
+     {
+      "Joint_1": 1.801784783431862,
+      "Joint_2": 1.5867640597161188,
+      "Joint_3": 0.001
+     },
+     null,
+     []
+    ],
+    [
+     "bajar",
+     {
+      "Joint_1": 1.801784783431862,
+      "Joint_2": 1.5867640597161188,
+      "Joint_3": 0.015
+     },
+     null
+    ],
+    [
+     "soltar",
+     {
+      "Joint_1": 1.801784783431862,
+      "Joint_2": 1.5867640597161188,
+      "Joint_3": 0.015
+     },
+     [
+      "soltar",
+      "tapa"
+     ]
+    ],
+    [
+     "subir",
+     {
+      "Joint_1": 1.801784783431862,
+      "Joint_2": 1.5867640597161188,
+      "Joint_3": 0.001
+     },
+     null
+    ],
+    [
+     "volver a HOME",
+     {
+      "Joint_1": 0.0,
+      "Joint_2": 1.5708,
+      "Joint_3": 0.001
+     },
+     null,
+     []
+    ]
+   ]
+  },
+  {
+   "robot": "robot5",
+   "objeto": "botella",
+   "keyframes": [
+    [
+     "ir a recoger",
+     {
+      "Join_1": 1.5017432816490874,
+      "Joint_2": 1.4463065772005832,
+      "Joint_3": -0.001
+     },
+     null,
+     [
+      {
+       "Join_1": 0.9773843811168281,
+       "Joint_2": 1.466076571675241,
+       "Joint_3": -0.001
+      },
+      {
+       "Join_1": 1.0471975511966014,
+       "Joint_2": 1.53588974175501,
+       "Joint_3": -0.001
+      }
+     ]
+    ],
+    [
+     "bajar",
+     {
+      "Join_1": 1.5017432816490874,
+      "Joint_2": 1.4463065772005832,
+      "Joint_3": -0.022969924812030078
+     },
+     null
+    ],
+    [
+     "agarrar",
+     {
+      "Join_1": 1.5017432816490874,
+      "Joint_2": 1.4463065772005832,
+      "Joint_3": -0.022969924812030078
+     },
+     [
+      "agarrar",
+      "botella"
+     ]
+    ],
+    [
+     "subir",
+     {
+      "Join_1": 1.5017432816490874,
+      "Joint_2": 1.4463065772005832,
+      "Joint_3": -0.001
+     },
+     null
+    ],
+    [
+     "llevar",
+     {
+      "Join_1": -1.3903265683577217,
+      "Joint_2": -1.151541809158423,
+      "Joint_3": -0.001
+     },
+     null,
+     [
+      {
+       "Join_1": 1.0471975511966014,
+       "Joint_2": 1.53588974175501,
+       "Joint_3": -0.001
+      },
+      {
+       "Join_1": 0.9773843811168281,
+       "Joint_2": 1.466076571675241,
+       "Joint_3": -0.001
+      }
+     ]
+    ],
+    [
+     "bajar",
+     {
+      "Join_1": -1.3903265683577217,
+      "Joint_2": -1.151541809158423,
+      "Joint_3": -0.022969924812030078
+     },
+     null
+    ],
+    [
+     "soltar",
+     {
+      "Join_1": -1.3903265683577217,
+      "Joint_2": -1.151541809158423,
+      "Joint_3": -0.022969924812030078
+     },
+     [
+      "soltar",
+      "botella"
+     ]
+    ],
+    [
+     "subir",
+     {
+      "Join_1": -1.3903265683577217,
+      "Joint_2": -1.151541809158423,
+      "Joint_3": -0.001
+     },
+     null
+    ],
+    [
+     "volver a HOME",
+     {
+      "Join_1": -1.37601,
+      "Joint_2": -1.5708,
+      "Joint_3": -0.001
+     },
+     null,
+     []
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!-- GENERADO por tools/generar_mundo.py desde config/estaciones.yaml. No editar a mano. -->
+<sdf version="1.9">
+  <world name="celda_aceite">
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/>
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <light type="directional" name="sol">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name="suelo">
+      <static>true</static>
+      <link name="link">
+        <collision name="col"><geometry><plane><normal>0 0 1</normal><size>10 10</size></plane></geometry></collision>
+        <visual name="vis"><geometry><plane><normal>0 0 1</normal><size>10 10</size></plane></geometry>
+          <material><ambient>0.85 0.85 0.85 1</ambient><diffuse>0.85 0.85 0.85 1</diffuse></material></visual>
+        <visual name="borde0"><pose>0.0 0.625 0.001 0 0 0</pose><geometry><box><size>1.25 0.01 0.002</size></box></geometry><material><ambient>0.6 0.1 0.2 1</ambient><diffuse>0.6 0.1 0.2 1</diffuse></material></visual>
+        <visual name="borde1"><pose>0.0 -0.625 0.001 0 0 0</pose><geometry><box><size>1.25 0.01 0.002</size></box></geometry><material><ambient>0.6 0.1 0.2 1</ambient><diffuse>0.6 0.1 0.2 1</diffuse></material></visual>
+        <visual name="borde2"><pose>0.625 0.0 0.001 0 0 0</pose><geometry><box><size>0.01 1.25 0.002</size></box></geometry><material><ambient>0.6 0.1 0.2 1</ambient><diffuse>0.6 0.1 0.2 1</diffuse></material></visual>
+        <visual name="borde3"><pose>-0.625 0.0 0.001 0 0 0</pose><geometry><box><size>0.01 1.25 0.002</size></box></geometry><material><ambient>0.6 0.1 0.2 1</ambient><diffuse>0.6 0.1 0.2 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="EB">
+      <static>true</static>
+      <pose>-0.4 0.12 0.01 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.15 0.2 0.02</size></box></geometry></collision>
+        <visual name="vis"><geometry><box><size>0.15 0.2 0.02</size></box></geometry><material><ambient>0.55 0.75 0.4 1</ambient><diffuse>0.55 0.75 0.4 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="RT">
+      <static>true</static>
+      <pose>0.4 -0.35 0.01 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.15 0.2 0.02</size></box></geometry></collision>
+        <visual name="vis"><geometry><box><size>0.15 0.2 0.02</size></box></geometry><material><ambient>0.55 0.75 0.4 1</ambient><diffuse>0.55 0.75 0.4 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="PF">
+      <static>true</static>
+      <pose>-0.37 -0.35 0.01 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.12 0.3 0.02</size></box></geometry></collision>
+        <visual name="vis"><geometry><box><size>0.12 0.3 0.02</size></box></geometry><material><ambient>0.55 0.75 0.4 1</ambient><diffuse>0.55 0.75 0.4 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="PLL">
+      <static>true</static>
+      <pose>0.0 0.13 0.01 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.1 0.1 0.02</size></box></geometry></collision>
+        <visual name="vis"><geometry><box><size>0.1 0.1 0.02</size></box></geometry><material><ambient>0.95 0.8 0.1 1</ambient><diffuse>0.95 0.8 0.1 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="PS">
+      <static>true</static>
+      <pose>0.0 -0.35 0.01 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.1 0.1 0.02</size></box></geometry></collision>
+        <visual name="vis"><geometry><box><size>0.1 0.1 0.02</size></box></geometry><material><ambient>0.1 0.75 0.2 1</ambient><diffuse>0.1 0.75 0.2 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="RI">
+      <static>true</static>
+      <pose>0.0 0.5 0.01 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><cylinder><radius>0.07</radius><length>0.02</length></cylinder></geometry></collision>
+        <visual name="vis"><geometry><cylinder><radius>0.07</radius><length>0.02</length></cylinder></geometry><material><ambient>0.6 0.8 0.3 1</ambient><diffuse>0.6 0.8 0.3 1</diffuse></material></visual>
+      </link>
+    </model>
+    <include>
+      <uri>model://botella</uri>
+      <name>botella</name>
+      <pose>-0.4 0.12 0.02 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://botella_llena</uri>
+      <name>botella_llena</name>
+      <pose>0.0 0.0 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://dispensador_tapas</uri>
+      <name>dispensador_tapas</name>
+      <pose>0.4 -0.35 0.02 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://tapa</uri>
+      <name>tapa</name>
+      <pose>0.4 -0.35 0.075 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://botella</uri>
+      <name>botella_1</name>
+      <pose>0.1 0.0 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://botella_llena</uri>
+      <name>botella_llena_1</name>
+      <pose>0.1 0.1 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://tapa</uri>
+      <name>tapa_1</name>
+      <pose>0.1 0.2 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://botella</uri>
+      <name>botella_2</name>
+      <pose>0.2 0.0 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://botella_llena</uri>
+      <name>botella_llena_2</name>
+      <pose>0.2 0.1 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://tapa</uri>
+      <name>tapa_2</name>
+      <pose>0.2 0.2 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://botella</uri>
+      <name>botella_3</name>
+      <pose>0.3 0.0 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://botella_llena</uri>
+      <name>botella_llena_3</name>
+      <pose>0.3 0.1 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://tapa</uri>
+      <name>tapa_3</name>
+      <pose>0.3 0.2 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://botella</uri>
+      <name>botella_4</name>
+      <pose>0.4 0.0 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://botella_llena</uri>
+      <name>botella_llena_4</name>
+      <pose>0.4 0.1 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://tapa</uri>
+      <name>tapa_4</name>
+      <pose>0.4 0.2 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://botella</uri>
+      <name>botella_5</name>
+      <pose>0.5 0.0 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://botella_llena</uri>
+      <name>botella_llena_5</name>
+      <pose>0.5 0.1 -0.5 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://tapa</uri>
+      <name>tapa_5</name>
+      <pose>0.5 0.2 -0.5 0 0 0</pose>
+    </include>
+  </world>
+</sdf>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <!-- Columna de 5.5 cm sobre RT: deja la tapa a una altura que el R4 alcanza (su eje Z baja 10.5 cm). -->
+  <model name="dispensador_tapas">
+    <static>true</static>
+    <link name="link">
+      <collision name="col"><pose>0 0 0.0275 0 0 0</pose><geometry><cylinder><radius>0.02</radius><length>0.055</length></cylinder></geometry></collision>
+      <visual name="vis"><pose>0 0 0.0275 0 0 0</pose><geometry><cylinder><radius>0.02</radius><length>0.055</length></cylinder></geometry>
+        <material><ambient>0.3 0.3 0.35 1</ambient><diffuse>0.3 0.3 0.35 1</diffuse></material></visual>
+    </link>
+  </model>
+</sdf>

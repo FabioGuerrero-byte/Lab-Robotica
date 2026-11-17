@@ -1,0 +1,58 @@
+# x_cm, y_cm: centro de la base en la celda (cm). base_cm: centro de la base en el frame del URDF.
+# home: postura con la que aparece cada robot y a la que vuelve.
+robots:
+  robot1:   # aceite RI -> botella en PLL
+    pkg: robot2
+    urdf: urdf/robot2_control.urdf
+    controladores_yaml: config/controllers.yaml
+    controladores: [joint_state_broadcaster, arm_controller]
+    x_cm: 20.0
+    y_cm: 32.6
+    base_cm: [-3.3, -97.7]
+    yaw_deg: 180.0
+    z_cm: -1.6
+    home: {joint_1: 0.0, joint_2: 0.0, joint_3: 0.0, joint_4: 0.0}
+  robot2:   # envase vacio EB -> PLL
+    pkg: Scara_Final_description
+    urdf: urdf/Scara_Final.urdf
+    controladores_yaml: config/controllers.yaml
+    controladores: [joint_state_broadcaster, scara_controller]
+    x_cm: -20.0
+    y_cm: 8.0
+    base_cm: [-17.0, 0.0]
+    raiz: Base_Link
+    yaw_deg: 0.0
+    z_cm: -1.3
+    vel_minima: 3.0
+    home: {Revoluci_n_1: -1.5708, Revoluci_n_2: 1.5708, Corredera_4: 0.039}
+  robot3:   # botella llena PLL -> PS
+    pkg: urdfscarafinal
+    urdf: urdf/scara_gazebo.urdf.xacro
+    controladores_yaml: config/controladores.yaml
+    controladores: [joint_state_broadcaster, arm_controller, gripper_controller]
+    x_cm: 0.0
+    y_cm: -13.0
+    base_cm: [-0.1, -0.1]
+    yaw_deg: -90.0
+    home: {eslabon1_joint: 1.6275, eslabon2_joint: 1.8523, prismatico_joint: 0.001, garra1_joint: 0.0, garra2_joint: 0.0}
+  robot4:   # tapa RT -> PS (rosca)
+    pkg: brazo_solidworks
+    urdf: urdf/brazo.urdf.xacro
+    controladores_yaml: config/controllers.yaml
+    controladores: [joint_state_broadcaster, joint1_position_controller, joint2_position_controller, joint3_velocity_controller]
+    x_cm: 18.0
+    y_cm: -45.0
+    base_cm: [0.0, 0.0]
+    yaw_deg: 0.0
+    home: {Joint_1: 0.0, Joint_2: 1.5708, Joint_3: 0.001}
+  robot5:   # botella tapada PS -> PF
+    pkg: modelo_robot
+    urdf: urdf/Ensamble_Robot_Scara.urdf
+    controladores_yaml: config/scara_controllers.yaml
+    controladores: [joint_state_broadcaster, arm_controller]
+    x_cm: -17.0
+    y_cm: -45.0
+    base_cm: [-0.8, -0.3]
+    yaw_deg: -90.0
+    z_cm: 1.0
+    home: {Join_1: -1.37601, Joint_2: -1.5708, Joint_3: -0.001}

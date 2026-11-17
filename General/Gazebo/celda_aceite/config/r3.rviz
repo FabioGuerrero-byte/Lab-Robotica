@@ -1,0 +1,55 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 0.1
+      Plane Cell Count: 14
+    - Class: rviz_default_plugins/RobotModel
+      Name: R3 Gazebo
+      Enabled: true
+      Alpha: 1
+      Description Source: Topic
+      Description Topic:
+        Value: /robot3/robot_description
+        Durability Policy: Transient Local
+      TF Prefix: robot3
+      Visual Enabled: true
+      Collision Enabled: false
+    - Class: rviz_default_plugins/RobotModel
+      Name: R3 real (encoders)
+      Enabled: true
+      Alpha: 0.45
+      Description Source: Topic
+      Description Topic:
+        Value: /robot3_real/robot_description
+        Durability Policy: Transient Local
+      TF Prefix: robot3_real
+      Visual Enabled: true
+      Collision Enabled: false
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Enabled: false
+  Global Options:
+    Fixed Frame: world
+    Background Color: 48; 48; 48
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 0.9
+      Focal Point:
+        X: 0.0
+        Y: -0.15
+        Z: 0.1
+      Pitch: 0.75
+      Yaw: 1.2
+Window Geometry:
+  Width: 1100
+  Height: 750

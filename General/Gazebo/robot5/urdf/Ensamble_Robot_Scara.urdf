@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="Robot_Scara_F">
+
+  <link name="world"/>
+  <joint name="fixed_to_world" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+  </joint> 
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.0074768 -0.0042443 -0.05846" rpy="0 0 0" />
+      <mass value="0.75467" />
+      <inertia ixx="0.0026112" ixy="-6.6098E-05" ixz="4.7424E-06" iyy="0.0056532" iyz="6.4561E-06" izz="0.0069253" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://modelo_robot/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.0078431 0.23922 0.82353 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://modelo_robot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="Link_1">
+    <inertial>
+      <origin xyz="0.050301 2.5584E-05 -0.039711" rpy="0 0 0" />
+      <mass value="0.16499" />
+      <inertia ixx="9.2698E-05" ixy="1.5054E-07" ixz="1.3155E-06" iyy="0.00041626" iyz="5.1721E-08" izz="0.00045058" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://modelo_robot/meshes/Link_1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://modelo_robot/meshes/Link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Join_1" type="revolute">
+    <origin xyz="0.067133 -0.0031595 -0.0024841" rpy="-3.1416 0 -0.19479" />
+    <parent link="base_link" />
+    <child link="Link_1" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <link name="Link_2">
+    <inertial>
+      <origin xyz="0.083343 -3.3384E-05 -0.035418" rpy="0 0 0" />
+      <mass value="0.22047" />
+      <inertia ixx="9.4697E-05" ixy="-7.0394E-08" ixz="-1.0939E-07" iyy="0.000397" iyz="-6.3842E-09" izz="0.00038542" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://modelo_robot/meshes/Link_2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://modelo_robot/meshes/Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Joint_2" type="revolute">
+    <origin xyz="0.112 0 -0.058984" rpy="0 0 -0.063707" />
+    <parent link="Link_1" />
+    <child link="Link_2" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-1.5708" upper="1.5708" effort="100" velocity="100" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <link name="Link_3">
+    <inertial>
+      <origin xyz="0.023683 -1.0089E-14 -0.014869" rpy="0 0 0" />
+      <mass value="0.013186" />
+      <inertia ixx="9.436E-06" ixy="1.1858E-20" ixz="-2.1563E-06" iyy="1.0192E-05" iyz="3.5702E-20" izz="2.8511E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://modelo_robot/meshes/Link_3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://modelo_robot/meshes/Link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="Joint_3" type="prismatic">
+    <origin xyz="0.161 0 -0.067" rpy="0 0 0" />
+    <parent link="Link_2" />
+    <child link="Link_3" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-0.0705" upper="0" effort="100" velocity="100" />
+    <dynamics damping="0.1" friction="0.1" />
+  </joint>
+
+  <ros2_control name="GazeboSimSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+    
+    <joint name="Join_1">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    
+    <joint name="Joint_2">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    
+    <joint name="Joint_3">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>/home/anonimus/Desktop/Robotica/ros2_ws/src/modelo_robot/config/scara_controllers.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="base_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="Link_1">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Link_2">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="Link_3">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <!-- VENTOSA -->
+  <link name="ventosa_link">
+    <visual>
+      <geometry><cylinder radius="0.02" length="0.01"/></geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="ventosa_joint" type="fixed">
+    <parent link="Link_3"/>
+    <child link="ventosa_link"/>
+    <origin xyz="0 0 0.01" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="ventosa_link">
+    <plugin filename="gz-sim-detachable-joint-system"
+            name="gz::sim::systems::DetachableJoint">
+      <parent_link>ventosa_link</parent_link>
+      <child_model>pelota_roja_1</child_model>
+      <child_link>link</child_link>
+      <topic>/gripper/switch</topic>
+      <detach_on_contacts>false</detach_on_contacts>
+    </plugin>
+  </gazebo>
+</robot>
